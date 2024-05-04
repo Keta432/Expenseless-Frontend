@@ -2,7 +2,6 @@ import React from "react";
 import "./register.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import users from "../../data/Users";
 
 const Register = (props) => {
   const [values, setValues] = useState({
@@ -120,11 +119,9 @@ const Register = (props) => {
       }),
     });
     const json = await response.json();
-    console.log(json);
     if (!json.error) {
       sessionStorage.setItem("user", JSON.stringify(username));
       sessionStorage.setItem("authtoken", json.authtoken);
-      console.log(json.authtoken);
       props.closeSignup();
       props.onRegister(username);
       navigate("/dashboard");

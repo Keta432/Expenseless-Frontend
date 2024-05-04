@@ -3,7 +3,6 @@ import "./dashboardNavigation.css"
 import { ReactComponent as Home } from '../../assets/images/dashboard-icons/home.svg'
 import { ReactComponent as Expenses } from '../../assets/images/dashboard-icons/expenses.svg'
 import { ReactComponent as Accounts } from '../../assets/images/dashboard-icons/accounts.svg'
-import { ReactComponent as Statistics } from '../../assets/images/dashboard-icons/statistics.svg'
 import { ReactComponent as Budget } from '../../assets/images/dashboard-icons/budget.svg'
 import { ReactComponent as Profile } from '../../assets/images/dashboard-icons/profile.svg'
 import { ReactComponent as Logout } from '../../assets/images/dashboard-icons/log-out.svg'
@@ -49,12 +48,7 @@ const DashboardNavigation = (props) => {
                             <span className="item-name">Budget</span>
                         </Link>
                     </li>
-                    <li>
-                        <Link to="statistics" onClick={() => { toggleMenu(); props.resetForm(); ScrollToTop() }}>
-                            <Statistics className="icon" />
-                            <span className="item-name">Statistics</span>
-                        </Link>
-                    </li>
+                    
                     <li>
                         <Link to="profile" onClick={() => { toggleMenu(); props.resetForm(); ScrollToTop() }}>
                             <Profile className="icon" />

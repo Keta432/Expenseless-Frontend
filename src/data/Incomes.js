@@ -1,6 +1,3 @@
-// import Savings from "../assets/images/accounts-dashboard/categories/savings.png";
-// import Services from "../assets/images/accounts-dashboard/categories/services.png";
-// import Investments from "../assets/images/accounts-dashboard/categories/investments.png";
 
 const incomes = [
     {

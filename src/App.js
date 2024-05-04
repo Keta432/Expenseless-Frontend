@@ -4,7 +4,6 @@ import LandingNavigation from "./components/landing-navigation/LandingNavigation
 import Landing from "./routes/landing/Landing";
 import About from "./routes/about/About";
 import Contact from "./routes/contact/Contact";
-// import Faq from "./routes/faq/Faq";
 import LandingFooter from "./components/landing-footer/LandingFooter";
 import SignIn from "./components/sign-in-modal/SignIn";
 import Register from "./components/register-modal/Register";

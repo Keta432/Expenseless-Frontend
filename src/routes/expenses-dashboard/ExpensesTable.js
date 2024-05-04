@@ -1,10 +1,8 @@
 import React from "react";
-// import expenses from "../../data/Expenses";
 import ExpensesContext from "../../Context/Context";
 import { useContext } from "react";
 
 const ExpensesTable = (props) => {
-  // console.log(props.currentExpenses)
 
   const context = useContext(ExpensesContext);
   const { setspecificexpense, expenses,setType } = context;
@@ -19,7 +17,6 @@ const ExpensesTable = (props) => {
               <tr>
                 <th scope="col">Expense name</th>
                 <th scope="col">Category</th>
-                {/* <th scope="col">Created</th> */}
                 <th scope="col">Amount</th>
                 <th scope="col">Account</th>
                 <th scope="col">More</th>
@@ -47,7 +44,6 @@ const ExpensesTable = (props) => {
                       props.toggleExistingRecords();
                       props.getRecordInfo(expense);
                       setType("expense");
-                      // console.log(expense);
                       setspecificexpense(expense);
                     }}
                   >

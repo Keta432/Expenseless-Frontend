@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import DashboardNavigation from "../../components/dashboard-navigation/DashboardNavigation";
 import ProfileDashboard from "../profile-dashboard/ProfileDashboard";
-import StatisticsDashboard from "../statistics-dashboard/Stats";
 import ExpensesDashboard from "../expenses-dashboard/ExpensesDashboard";
 import BudgetDashboard from "../budget-dashboard/BudgetDashboard";
 import AccountsDashboard from "../accounts-dashboard/AccountsDashboard";
@@ -49,7 +48,6 @@ const Dashboard = (props) => {
 
   const identifyRecord = (id, type) => {
     if (type === "expense") {
-      //   console.log(recordInfo);
       expenses.map((expense) => {
         if (expense.id === id) {
           setTargetRecordType("expense");
@@ -57,7 +55,6 @@ const Dashboard = (props) => {
         return expense;
       });
       getspecificexpense(id);
-      console.log(specificexpense);
     }
     if (type === "income") {
       incomes.map((income) => {
@@ -100,9 +97,7 @@ const Dashboard = (props) => {
 
   const handleValidation = (e) => {
     const { name, value } = e.target;
-    console.log(name)
     if (targetRecordType === "expense") {
-      console.log(name);
       setFormValue({ ...formValue, id: expenses.length + 1, type: "expense", currency: "$", cover: covers[formValue.category], [name]: value, });
     }
     if (targetRecordType === "income") {
@@ -125,7 +120,6 @@ const Dashboard = (props) => {
     if (!validateForm(formValue)) return false;
     const { name, amount, category, bankAccount, note } = formValue;
     expenses.push(formValue);
-    console.log(formValue);
     addexpenses(name, amount, category, bankAccount, note);
     updateBankBalance(formValue, "substract");
     setSubmit(true);
@@ -169,7 +163,6 @@ const Dashboard = (props) => {
     setEditMode(false);
   };
   const deleteExistingRecord = (type) => {
-    console.log(type)
     if(type==="expense"){
     deleteexpense(specificexpense._id);
     updateBankBalance(recordInfo, "add");
@@ -187,7 +180,6 @@ const Dashboard = (props) => {
   };
   const handleEditValidation = (e) => {
     const { name, value } = e.target;
-    console.log(name)
     setEditFormValue({ ...editFormValue, [name]: value });
   };
 
@@ -235,7 +227,6 @@ const Dashboard = (props) => {
         prevamount
       );
     }
-    // console.log(sessionStorage.getItem("authtoken"));
     if (Type === "income") {
 
       if (editFormValue.name.length > 0) {
@@ -385,7 +376,6 @@ const Dashboard = (props) => {
                 }
               />
               <Route path="accounts" element={<AccountsDashboard />} />
-              <Route path="statistics" element={<StatisticsDashboard />} />
               <Route path="budget" element={<BudgetDashboard />} />
               <Route
                 path="profile"

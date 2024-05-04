@@ -59,7 +59,6 @@ const AddCardModal = (props) => {
     if (!validateForm(formValue)) return false;
     const { name, balance, cardnum, color } = formValue;
     accounts.push(formValue);
-    console.log(color);
     addaccount(name, balance, cardnum, color);
     setFormValue({
       id: "",

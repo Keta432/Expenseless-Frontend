@@ -5,8 +5,6 @@ import ExpensesTable from "./ExpensesTable";
 import IncomeModal from "./IncomeModal";
 import IncomesTable from "./IncomesTable";
 import { useState, useContext, useEffect } from "react";
-// import expenses from "../../data/Expenses";
-// import incomes from "../../data/Incomes";
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../../helpers/ScrollToTop";
 import ExpensesContext from "../../Context/Context";
@@ -65,7 +63,6 @@ const ExpensesDashboard = ({
     setItemOffset(newOffset);
     ScrollToTop();
   };
-  //   console.log(currentExpenses);
   return (
     <main className="expenses-dashboard">
       <article>

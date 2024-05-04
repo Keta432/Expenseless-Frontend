@@ -60,7 +60,6 @@ const State = (props) => {
   };
   const deleteuser = async (email, password) => {
     // eslint-disable-next-line
-    console.log(email);
     const response = await fetch(`http://localhost:5000/api/auth/deleteuser`, {
       method: "DElETE",
       headers: {
@@ -70,10 +69,8 @@ const State = (props) => {
       body: JSON.stringify({ email: email, password: password }),
     });
     const json = await response.json();
-    console.log(json);
     if (json.status === "400") {
       sessionStorage.removeItem("authtoken");
-      console.log("removed")
     }
   };
 
@@ -282,9 +279,6 @@ const State = (props) => {
       if (element._id === id) {
         if(amount){
           let newtotal=currentTotal+parseInt(amount)-parseInt(prevamount)
-          console.log(amount)
-          console.log(newtotal)
-          console.log(prevamount)
           settotalexpense(newtotal)
         }
         newexpense[index].name = name;
@@ -348,7 +342,6 @@ const State = (props) => {
   };
 
   const addStateIncome = async (name, amount, category, bank_account, note) => {
-    console.log(name, amount, category, bank_account, note);
     const currentTotal = typeof totalincome === 'string' ? parseInt(totalincome) : totalincome;
     let newtotal=currentTotal+parseInt(amount)
     const response = await fetch(
@@ -410,7 +403,6 @@ const State = (props) => {
       }
     );
     const json = await response.json();
-    console.log(json);
     let newincome = JSON.parse(JSON.stringify(incomes));
 
     for (let index = 0; index < incomes.length; index++) {
@@ -418,9 +410,6 @@ const State = (props) => {
       if (element._id === id) {
         if(amount){
           let newtotal=currentTotal+parseInt(amount)-parseInt(previncome)
-          console.log(amount)
-          console.log(newtotal)
-          console.log(previncome)
           settotalincome(newtotal)
         }
         newincome[index].name = name;
