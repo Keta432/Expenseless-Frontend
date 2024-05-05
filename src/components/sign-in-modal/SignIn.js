@@ -46,15 +46,14 @@ const SignIn = (props) => {
     }
     const response = await fetch(`https://expenseless-backend.onrender.com/api/auth/login`, {
       method: "POST",
-      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email: email, password: password }),
     });
     const json = await response.json();
-    const username=json.username;
-    if (json.authtoken) {
+    const username = json.username;
+    if (response.ok) {
       props.closeLogin();
       sessionStorage.setItem("user", JSON.stringify(username));
       sessionStorage.setItem("authtoken", json.authtoken);
