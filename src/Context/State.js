@@ -26,8 +26,9 @@ const State = (props) => {
   ////////////                                 USER
   //function to get user
   const getuser = async () => {
-    const response = await fetch(`https://expenseless-api.onrender.com/api/auth/getuser`, {
+    const response = await fetch(`https://expenseless-backend.onrender.com/api/auth/getuser`, {
       method: "GET",
+      mode: 'no-cors',
       headers: {
         "auth-token": sessionStorage.getItem("authtoken"),
       },
@@ -37,8 +38,9 @@ const State = (props) => {
   };
   const updateuser = async (email, language, currency, subscription) => {
     // eslint-disable-next-line
-    const response = await fetch(`https://expenseless-api.onrender.com/api/auth/updateuser`, {
+    const response = await fetch(`https://expenseless-backend.onrender.com/api/auth/updateuser`, {
       method: "PUT",
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
         "auth-token": sessionStorage.getItem("authtoken"),
@@ -60,8 +62,9 @@ const State = (props) => {
   };
   const deleteuser = async (email, password) => {
     // eslint-disable-next-line
-    const response = await fetch(`https://expenseless-api.onrender.com/api/auth/deleteuser`, {
+    const response = await fetch(`https://expenseless-backend.onrender.com/api/auth/deleteuser`, {
       method: "DElETE",
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
         "auth-token": sessionStorage.getItem("authtoken"),
@@ -81,9 +84,10 @@ const State = (props) => {
   //function to get all accounts
   const getaccounts = async () => {
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/accounts/fetchallaccounts`,
+      `https://expenseless-backend.onrender.com/api/accounts/fetchallaccounts`,
       {
         method: "GET",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
@@ -96,9 +100,10 @@ const State = (props) => {
   // function to add account
   const addaccount = async (name, balance, cardnum, color) => {
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/accounts/addaccount`,
+      `https://expenseless-backend.onrender.com/api/accounts/addaccount`,
       {
         method: "POST",
+        mode: 'no-cors',
         headers: {
           "Content-Type": "application/json",
           "auth-token": sessionStorage.getItem("authtoken"),
@@ -120,9 +125,10 @@ const State = (props) => {
   // function to get specific account
   const getspecificaccount = async (id) => {
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/accounts/getaccount/${id}`,
+      `https://expenseless-backend.onrender.com/api/accounts/getaccount/${id}`,
       {
         method: "GET",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
@@ -136,9 +142,10 @@ const State = (props) => {
   const updateaccount = async (id, name, balance, cardnum, color) => {
     // eslint-disable-next-line
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/accounts/updateaccount/${id}`,
+      `https://expenseless-backend.onrender.com/api/accounts/updateaccount/${id}`,
       {
         method: "PUT",
+        mode: 'no-cors',
         headers: {
           "Content-Type": "application/json",
           "auth-token": sessionStorage.getItem("authtoken"),
@@ -168,9 +175,10 @@ const State = (props) => {
   const deleteaccount = async (id) => {
     // eslint-disable-next-line
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/accounts/deleteaccount/${id}`,
+      `https://expenseless-backend.onrender.com/api/accounts/deleteaccount/${id}`,
       {
         method: "DELETE",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
@@ -193,9 +201,10 @@ const State = (props) => {
   //function to get all expenses
   const getexpenses = async () => {
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/expenses/fetchallexpenses`,
+      `https://expenseless-backend.onrender.com/api/expenses/fetchallexpenses`,
       {
         method: "GET",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
@@ -214,9 +223,10 @@ const State = (props) => {
     const currentTotal = typeof totalexpense === 'string' ? parseInt(totalexpense) : totalexpense;
     let newtotal=currentTotal+parseInt(amount)
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/expenses/addexpenses`,
+      `https://expenseless-backend.onrender.com/api/expenses/addexpenses`,
       {
         method: "POST",
+        mode: 'no-cors',
         headers: {
           "Content-Type": "application/json",
           "auth-token": sessionStorage.getItem("authtoken"),
@@ -239,9 +249,10 @@ const State = (props) => {
 
   const getspecificexpense = async (id) => {
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/expenses/getexpense/${id}`,
+      `https://expenseless-backend.onrender.com/api/expenses/getexpense/${id}`,
       {
         method: "GET",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
@@ -254,9 +265,10 @@ const State = (props) => {
     // eslint-disable-next-line
     const currentTotal = typeof totalexpense === 'string' ? parseInt(totalexpense) : totalexpense;
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/expenses/updateexpense/${id}`,
+      `https://expenseless-backend.onrender.com/api/expenses/updateexpense/${id}`,
       {
         method: "PUT",
+        mode: 'no-cors',
         headers: {
           "Content-Type": "application/json",
           "auth-token": sessionStorage.getItem("authtoken"),
@@ -297,9 +309,10 @@ const State = (props) => {
   const deleteexpense = async (id) => {
     // eslint-disable-next-line
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/expenses/deleteexpense/${id}`,
+      `https://expenseless-backend.onrender.com/api/expenses/deleteexpense/${id}`,
       {
         method: "DELETE",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
@@ -324,7 +337,7 @@ const State = (props) => {
   //function to get all incomes
   const getincome = async () => {
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/incomes/fetchallIncomes`,
+      `https://expenseless-backend.onrender.com/api/incomes/fetchallIncomes`,
       {
         method: "GET",
         mode: 'no-cors',
@@ -346,9 +359,10 @@ const State = (props) => {
     const currentTotal = typeof totalincome === 'string' ? parseInt(totalincome) : totalincome;
     let newtotal=currentTotal+parseInt(amount)
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/incomes/addincome`,
+      `https://expenseless-backend.onrender.com/api/incomes/addincome`,
       {
         method: "POST",
+        mode: 'no-cors',
         headers: {
           "Content-Type": "application/json",
           "auth-token": sessionStorage.getItem("authtoken"),
@@ -371,9 +385,10 @@ const State = (props) => {
 
   const getspecificincome = async (id) => {
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/incomes/getincome/${id}`,
+      `https://expenseless-backend.onrender.com/api/incomes/getincome/${id}`,
       {
         method: "GET",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
@@ -387,9 +402,10 @@ const State = (props) => {
     const currentTotal = typeof totalincome === 'string' ? parseInt(totalincome) : totalincome;
 
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/incomes/updateincome/${id}`,
+      `https://expenseless-backend.onrender.com/api/incomes/updateincome/${id}`,
       {
         method: "PUT",
+        mode: 'no-cors',
         headers: {
           "Content-Type": "application/json",
           "auth-token": sessionStorage.getItem("authtoken"),
@@ -427,9 +443,10 @@ const State = (props) => {
   const deleteincome = async (id) => {
     // eslint-disable-next-line
     const response = await fetch(
-      `https://expenseless-api.onrender.com/api/incomes/deleteincome/${id}`,
+      `https://expenseless-backend.onrender.com/api/incomes/deleteincome/${id}`,
       {
         method: "DELETE",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
