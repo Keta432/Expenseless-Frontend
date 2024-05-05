@@ -109,6 +109,7 @@ const Register = (props) => {
 
     const response = await fetch(`https://expenseless-backend.onrender.com/api/auth/signup`, {
       method: "POST",
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
       },

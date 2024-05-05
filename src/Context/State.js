@@ -327,6 +327,7 @@ const State = (props) => {
       `https://expenseless-api.onrender.com/api/incomes/fetchallIncomes`,
       {
         method: "GET",
+        mode: 'no-cors',
         headers: {
           "auth-token": sessionStorage.getItem("authtoken"),
         },
